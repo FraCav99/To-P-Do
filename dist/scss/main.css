@@ -9,14 +9,20 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+li {
+  list-style-type: none;
+}
+
 .sidebar {
-  background-color: gray;
+  background-color: #f5f4f7;
   width: 30%;
   height: 100vh;
 }
 
 .sidebar .upper-part {
+  height: 20vh;
   text-align: center;
+  overflow-y: hidden;
 }
 
 .sidebar .upper-part h2 {
@@ -41,5 +47,52 @@ body {
   color: #0097ec;
   background-color: white;
   border: 1px solid #0097ec;
+}
+
+.sidebar .bottom-part {
+  height: 80vh;
+  text-align: center;
+}
+
+.sidebar .bottom-part .lists-container {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  overflow-y: scroll;
+  /* Safari and Chrome */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.sidebar .bottom-part .lists-container ::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar .bottom-part .list {
+  cursor: pointer;
+  display: inline;
+  font-weight: 500;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.sidebar .bottom-part .list:hover {
+  padding: 10px 20px;
+  background-color: #ebebeb;
+  -webkit-box-shadow: 0px 0px 5px 0px #0097ec;
+          box-shadow: 0px 0px 5px 0px #0097ec;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=main.css.map */
