@@ -409,6 +409,100 @@ li {
   background-color: red;
 }
 
+.modal-container .item-input {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.modal-container .item-input #item-title {
+  width: 100%;
+}
+
+.modal-container .item-input label,
+.modal-container .item-input input {
+  display: block;
+}
+
+.modal-container .item-input label {
+  color: #0097ec;
+  margin-bottom: 5px;
+}
+
+.modal-container .item-input input {
+  border: 1px solid #acacac;
+  background-color: #f5f4f7;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.modal-container .item-input select {
+  border: none;
+  padding: 10px 5px;
+  background-color: #f5f4f7;
+  border: 1px solid #acacac;
+  border-radius: 10px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 8px;
+}
+
+.modal-container .item-input .mid-input-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 20px 0px;
+}
+
+.modal-container .item-input textarea {
+  display: block;
+  width: 100%;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid #acacac;
+  padding: 10px;
+  background-color: #f5f4f7;
+}
+
+.modal-container .item-input .action-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-container .item-input button {
+  cursor: pointer;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}
+
+.modal-container .item-input button:first-child {
+  margin-right: 20px;
+}
+
+.modal-container .item-input #add {
+  background-color: #00ff19;
+}
+
+.modal-container .item-input #discard {
+  background-color: red;
+}
+
 @media screen and (max-width: 700px) {
   .modal-container .title-input {
     width: 80%;

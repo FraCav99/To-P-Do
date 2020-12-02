@@ -57,6 +57,90 @@
       background-color: red;
     }
   }
+
+  // Item input
+  .item-input {
+    background-color: white;
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+
+    #item-title {
+      width: 100%;
+    }
+
+    label,
+    input {
+      display: block;
+    }
+
+    label {
+      color: $vanishBlue;
+      margin-bottom: 5px;
+    }
+
+    input {
+      border: 1px solid $greyish;
+      background-color: $whiteGray;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    select {
+      border: none;
+      padding: 10px 5px;
+      background-color: $whiteGray;
+      border: 1px solid $greyish;
+      border-radius: 10px;
+      appearance: none;
+      background-image: url("data:image/svg+xml;utf8,<svg fill='black' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 100%;
+      background-position-y: 8px;
+    }
+
+    .mid-input-container {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0px;
+    }
+
+    textarea {
+      display: block;
+      width: 100%;
+      resize: none;
+      border-radius: 10px;
+      border: 1px solid $greyish;
+      padding: 10px;
+      background-color: $whiteGray;
+    }
+
+    .action-button {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      color: white;
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+
+    #add {
+      background-color: $greenish;
+    }
+
+    #discard {
+      background-color: red;
+    }
+  }
 }
 
 // Media query
