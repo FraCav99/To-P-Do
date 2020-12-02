@@ -19,6 +19,7 @@ li {
 
 .visible {
   display: none;
+  visibility: hidden;
 }
 
 .sidebar {
