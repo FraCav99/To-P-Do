@@ -1,12 +1,14 @@
 .current__list__container {
   width: 70%;
+  overflow: hidden;
 
+  // Switch mode button container
   .switch-mode-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-right: 20px;
-    padding-top: 10px;
+    height: 5vh;
 
     .sun,
     .moon {
@@ -66,6 +68,101 @@
       border-radius: 34px;
       &:before {
         border-radius: 50%;
+      }
+    }
+  }
+
+  // Current list
+  .current-list {
+    height: 95vh;
+
+    #list-title {
+      text-align: center;
+      font-weight: 500;
+      padding: 10px 0px;
+    }
+
+    .list-items-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      height: 86vh;
+      overflow-y: scroll;
+
+      /* Safari and Chrome */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+      -ms-overflow-style: none; /* Internet Explorer 10+ */
+      scrollbar-width: none; /* Firefox */
+    }
+
+    .item {
+      cursor: pointer;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      width: 70%;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.5s;
+
+      .priority {
+        height: 10px;
+        width: 10px;
+        border-radius: 100%;
+        margin-left: 10px;
+      }
+
+      .high {
+        background-color: red;
+      }
+
+      .medium {
+        background-color: $yellow;
+      }
+
+      .low {
+        background-color: $greenish;
+      }
+
+      #item-name {
+        font-weight: 500;
+        font-size: 20px;
+      }
+
+      .actionBtn {
+        width: 30%;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+
+        .action {
+          cursor: pointer;
+          border: none;
+          padding: 5px 10px;
+          border-radius: 5px;
+
+          svg {
+            width: 10px;
+            height: 10px;
+            fill: white;
+          }
+
+          background-color: $AbitMoreGrey;
+        }
+
+        #delete {
+          font-size: 10px;
+          font-weight: 700;
+          background-color: red;
+          color: white;
+        }
+      }
+
+      &:hover {
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       }
     }
   }
