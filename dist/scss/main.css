@@ -17,6 +17,10 @@ li {
   list-style-type: none;
 }
 
+.visible {
+  display: none;
+}
+
 .sidebar {
   background-color: #f5f4f7;
   width: 30%;
