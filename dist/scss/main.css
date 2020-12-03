@@ -532,8 +532,44 @@ li {
   background-color: red;
 }
 
+.deletion-modal {
+  background-color: white;
+  text-align: center;
+  width: 40%;
+  margin: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.deletion-modal p {
+  color: black;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.deletion-modal button {
+  cursor: pointer;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+
+.deletion-modal #delete {
+  background-color: red;
+  color: white;
+  margin-right: 10px;
+}
+
+.deletion-modal #cancel {
+  background-color: #00ff19;
+  color: white;
+}
+
 @media screen and (max-width: 700px) {
   .modal-container .title-input {
+    width: 80%;
+  }
+  .modal-container .deletion-modal {
     width: 80%;
   }
 }

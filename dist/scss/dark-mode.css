@@ -107,3 +107,11 @@
   background-color: var(--lightGray);
   color: var(--white);
 }
+
+.modal-container .deletion-modal {
+  background-color: var(--mediumGray);
+}
+
+.modal-container .deletion-modal p {
+  color: var(--white);
+}
