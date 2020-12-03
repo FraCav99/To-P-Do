@@ -1,0 +1,109 @@
+:root {
+  --darkGray: #111111;
+  --white: white;
+  --purple: #6800ec;
+  --slightlyBlack: #353535;
+  --itemGray: #202020;
+  --itemShadow: #9c9c9c;
+  --pinkyShadow: rgba(219, 0, 255, 0.7);
+  --mediumGray: #626262;
+  --lightGray: #a1a1a1;
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--darkGray);
+}
+
+.sidebar .upper-part h2 {
+  color: var(--white);
+}
+
+.sidebar .upper-part button {
+  background-color: var(--purple);
+}
+
+.sidebar .upper-part button:hover {
+  background-color: var(--white);
+  color: var(--purple);
+  border-color: var(--purple);
+}
+
+.sidebar .bottom-part .lists-container li {
+  color: var(--white);
+}
+
+.sidebar .bottom-part .lists-container li:hover {
+  background-color: var(--slightlyBlack);
+  box-shadow: 0px 0px 7px 0px var(--pinkyShadow);
+}
+
+/* Current list container */
+
+.current__list__container {
+  background-color: black;
+}
+
+.current__list__container .switch-mode-container .moon {
+  fill: var(--pinkyShadow);
+}
+
+.current__list__container .switch-mode-container .sun {
+  fill: var(--pinkyShadow);
+}
+
+.current__list__container .current-list h1 {
+  color: var(--white);
+}
+
+.current__list__container .current-list .list-items-container #add-new-todo {
+  background-color: var(--purple);
+}
+
+.current__list__container .current-list .list-items-container .item {
+  background-color: var(--itemGray);
+}
+
+.current__list__container .current-list .list-items-container .item:hover {
+  box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+}
+
+.current__list__container .current-list .list-items-container .item #item-name {
+  color: var(--white);
+}
+
+/* Modals */
+.modal-container .title-input {
+  background-color: var(--mediumGray);
+}
+
+.modal-container .title-input form label {
+  color: var(--white);
+}
+
+.modal-container .title-input form input {
+  background-color: var(--lightGray);
+}
+
+.modal-container .item-input {
+  background-color: var(--mediumGray);
+}
+
+.modal-container .item-input form label {
+  color: var(--white);
+}
+
+.modal-container .item-input form input {
+  background-color: var(--lightGray);
+  color: var(--white);
+}
+
+.modal-container .item-input form textarea {
+  background-color: var(--lightGray);
+  color: var(--white);
+}
+
+.modal-container .item-input form select {
+  background-color: var(--lightGray);
+  color: var(--white);
+}
