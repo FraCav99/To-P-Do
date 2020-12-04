@@ -1,1 +1,1 @@
-console.log("hello");
+(()=>{"use strict";!function(e,t){const c={darkModeSwitch:document.querySelector('input[type="checkbox"]')};c.darkModeSwitch.addEventListener("click",(()=>e.toggleDarkMode(c.darkModeSwitch)))}({toggleDarkMode:e=>{const t=document.getElementById("dark");e.checked?t.rel="stylesheet":t.rel="stylesheet alternate"}})})();
