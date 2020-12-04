@@ -7,6 +7,8 @@ export default function view() {
         darkStylesheet.rel = 'stylesheet alternate';
     }
 
+    const resetInputField = field => field.value = '';
+
     const showModal = (mainModalContainer, modal) => {
         // Make modal container and its modal visible
         mainModalContainer.classList.remove('visible');
@@ -25,6 +27,7 @@ export default function view() {
 
     return {
         toggleDarkMode,
+        resetInputField,
         showModal,
         closeModal
     }

@@ -6,6 +6,7 @@ export default function controller(view, model) {
         listsContainer: document.querySelector('.lists-container'),
         addNewListBtn: document.getElementById('add-new-list'),
         discardTitleBtn: document.getElementById('discard-list-title'),
+        listTitleInput: document.getElementById('list-title-input'),
         addListBtn: document.getElementById('add-list-title'),
         itemInputModal: document.querySelector('.item-input'),      // add new item modal
         addNewItemBtn: document.getElementById('add-new-todo'),
@@ -16,8 +17,6 @@ export default function controller(view, model) {
         confirmCancelationListBtn: document.getElementById('delete')
     }
 
-    console.log(DOM.deleteListButton);
-
     // Toggle dark mode
     DOM.darkModeSwitch.addEventListener('click', () => view.toggleDarkMode(DOM.darkModeSwitch));
 
@@ -25,16 +24,27 @@ export default function controller(view, model) {
     DOM.addNewListBtn.addEventListener('click', () => view.showModal(DOM.modalContainer, DOM.listTitleModal));
     DOM.addNewItemBtn.addEventListener('click', () => view.showModal(DOM.modalContainer, DOM.itemInputModal));
 
-    // Use event delegation for click listener on delete buttons
+    // Use event delegation for click listener on delete list buttons
     DOM.listsContainer.addEventListener('click', ev => {
-        console.log(ev.target.tagName);
         if (ev.target.classList.contains('delete-list') || ev.target.tagName === 'path' || ev.target.tagName === 'svg') {
-            view.showModal(DOM.modalContainer, DOM.cancelListModal)
+            view.showModal(DOM.modalContainer, DOM.cancelListModal);
         }
-    })
+    });
 
     // Close modal container and its modal
-    DOM.discardTitleBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal));
+    DOM.discardTitleBtn.addEventListener('click', ev => {
+        view.resetInputField(DOM.listTitleInput);   // reset input field if something was written
+        view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal);
+    });
     DOM.discardItemBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.itemInputModal));
-    DOM.closeCancelListModalBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal))
+    DOM.closeCancelListModalBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal));
+
+    // Create a new todo list
+    DOM.addListBtn.addEventListener('click', ev => {
+        if (DOM.listTitleInput.value !== '') {
+            model.createList(DOM.listTitleInput.value);
+            view.resetInputField(DOM.listTitleInput);
+            view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal);
+        }
+    });
 }
