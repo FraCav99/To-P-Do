@@ -4,7 +4,12 @@ export default function model() {
         localStorage.setItem(title, JSON.stringify(todos));
     }
 
+    const deleteList = title => {
+        localStorage.removeItem(title);
+    }
+
     return {
-        createList
+        createList,
+        deleteList
     }
 }

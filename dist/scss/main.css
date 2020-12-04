@@ -108,12 +108,7 @@ li {
   transition: all 0.5s;
   opacity: 0;
   display: none;
-}
-
-.sidebar .bottom-part .lists-container .list button svg {
-  width: 15px;
-  height: 15px;
-  fill: white;
+  color: white;
 }
 
 .sidebar .bottom-part .lists-container .list button:hover {

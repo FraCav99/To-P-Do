@@ -66,11 +66,7 @@
           transition: all 0.5s;
           opacity: 0;
           display: none;
-          svg {
-            width: 15px;
-            height: 15px;
-            fill: white;
-          }
+          color: white;
 
           &:hover {
             background-color: rgb(151, 0, 0);

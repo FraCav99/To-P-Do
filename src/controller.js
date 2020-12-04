@@ -26,7 +26,7 @@ export default function controller(view, model) {
 
     // Use event delegation for click listener on delete list buttons
     DOM.listsContainer.addEventListener('click', ev => {
-        if (ev.target.classList.contains('delete-list') || ev.target.tagName === 'path' || ev.target.tagName === 'svg') {
+        if (ev.target.classList.contains('delete-list')) {
             view.showModal(DOM.modalContainer, DOM.cancelListModal);
         }
     });
