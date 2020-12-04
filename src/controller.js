@@ -43,6 +43,7 @@ export default function controller(view, model) {
     DOM.addListBtn.addEventListener('click', ev => {
         if (DOM.listTitleInput.value !== '') {
             model.createList(DOM.listTitleInput.value);
+            //view.createListDiv(DOM.listsContainer, DOM.listTitleInput.value); testing
             view.resetInputField(DOM.listTitleInput);
             view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal);
         }
