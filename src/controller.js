@@ -1,11 +1,15 @@
 export default function controller(view, model) {
     const DOM = {
         darkModeSwitch: document.querySelector('input[type="checkbox"]'),
-        addNewListBtn: document.getElementById('add__todo'),
+        addNewListBtn: document.getElementById('add-new-list'),
+        addNewItemBtn: document.getElementById('add-new-todo'),
         modalContainer: document.querySelector('.modal-container'),
         listTitleModal: document.querySelector('.title-input'),
-        discardBtn: document.getElementById('discard'),
-        addBtn: document.getElementById('add')
+        itemInputModal: document.querySelector('.item-input'),
+        discardTitleBtn: document.getElementById('discard-list-title'),
+        discardItemBtn: document.getElementById('discard-item'),
+        addListBtn: document.getElementById('add-list-title'),
+        addItemBtn: document.getElementById('add-item')
     }
 
     // Toggle dark mode
@@ -13,7 +17,9 @@ export default function controller(view, model) {
 
     // Show modal container and its modal
     DOM.addNewListBtn.addEventListener('click', () => view.showModal(DOM.modalContainer, DOM.listTitleModal));
+    DOM.addNewItemBtn.addEventListener('click', () => view.showModal(DOM.modalContainer, DOM.itemInputModal));
 
     // Close modal container and its modal
-    DOM.discardBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal))
+    DOM.discardTitleBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal));
+    DOM.discardItemBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.itemInputModal));
 }

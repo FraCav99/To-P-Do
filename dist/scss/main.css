@@ -430,11 +430,11 @@ li {
   margin-right: 20px;
 }
 
-.modal-container .title-input #add {
+.modal-container .title-input #add-list-title {
   background-color: #00ff19;
 }
 
-.modal-container .title-input #discard {
+.modal-container .title-input #discard-list-title {
   background-color: red;
 }
 
@@ -524,11 +524,11 @@ li {
   margin-right: 20px;
 }
 
-.modal-container .item-input #add {
+.modal-container .item-input #add-item {
   background-color: #00ff19;
 }
 
-.modal-container .item-input #discard {
+.modal-container .item-input #discard-item {
   background-color: red;
 }
 
