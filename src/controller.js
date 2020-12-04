@@ -17,6 +17,9 @@ export default function controller(view, model) {
         confirmCancelationListBtn: document.getElementById('delete')
     }
 
+    // Hold the clicked list name
+    let targetTextContent; 
+
     // Toggle dark mode
     DOM.darkModeSwitch.addEventListener('click', () => view.toggleDarkMode(DOM.darkModeSwitch));
 
@@ -26,6 +29,11 @@ export default function controller(view, model) {
 
     // Use event delegation for click listener on delete list buttons
     DOM.listsContainer.addEventListener('click', ev => {
+        // Avoid to have 'X' at the end of the list name
+        // e.g: 'shoppingX' --> 'shopping'
+        targetTextContent = ev.target.parentNode.textContent;
+        targetTextContent = targetTextContent.slice(0, -1);
+
         if (ev.target.classList.contains('delete-list')) {
             view.showModal(DOM.modalContainer, DOM.cancelListModal);
         }
@@ -48,6 +56,15 @@ export default function controller(view, model) {
             view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal);
         }
     });
+
+    // Delete a list
+    DOM.confirmCancelationListBtn.addEventListener('click', ev => {
+        if (targetTextContent !== "") {
+            model.deleteList(targetTextContent);
+            view.createListDiv(DOM.listsContainer);
+            view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal);
+        }
+    })
 
     // Display the list
     view.createListDiv(DOM.listsContainer);

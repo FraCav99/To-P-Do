@@ -35,21 +35,28 @@ export default function view() {
         // Refresh the list names resetting it
         _removeChilds(listsContainer);
 
-        for (let i = 0; i < localStorage.length; i++) {
-            const list = document.createElement('li');
-            list.classList.add('list');
-            list.textContent = localStorage.key(i);
-    
-            // Create the delete list button
-            const deleteListBtn = document.createElement('button');
-            deleteListBtn.classList.add('delete-list');
-            deleteListBtn.textContent = 'X';
-    
-            // append the button to li element
-            list.append(deleteListBtn);
-    
-            // append list element to list container
-            listsContainer.append(list);
+        if (localStorage.length > 0) {
+            for (let i = 0; i < localStorage.length; i++) {
+                const list = document.createElement('li');
+                list.classList.add('list');
+                list.textContent = localStorage.key(i);
+        
+                // Create the delete list button
+                const deleteListBtn = document.createElement('button');
+                deleteListBtn.classList.add('delete-list');
+                deleteListBtn.textContent = 'X';
+        
+                // append the button to li element
+                list.append(deleteListBtn);
+        
+                // append list element to list container
+                listsContainer.append(list);
+            }
+        } else {
+            const par = document.createElement('p');
+            par.textContent = "Start by creating a new list";
+
+            listsContainer.append(par);
         }
     }
 
