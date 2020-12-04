@@ -34,8 +34,8 @@
 }
 
 .sidebar .bottom-part .lists-container li:hover {
-  background-color: var(--slightlyBlack);
-  box-shadow: 0px 0px 7px 0px var(--pinkyShadow);
+  background-color: var(--slightlyBlack) !important;
+  box-shadow: 0px 0px 7px 0px var(--pinkyShadow) !important;
 }
 
 /* Current list container */
