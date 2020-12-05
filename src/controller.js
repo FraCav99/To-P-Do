@@ -14,7 +14,10 @@ export default function controller(view, model) {
         discardItemBtn: document.getElementById('discard-item'),
         cancelListModal: document.querySelector('.deletion-modal'), // cancelation modal
         closeCancelListModalBtn: document.getElementById('cancel'),
-        confirmCancelationListBtn: document.getElementById('delete')
+        confirmCancelationListBtn: document.getElementById('delete'),
+        listItemsContainer: document.querySelector('.list-items-container'), // Elements inside list container
+        listTitle: document.getElementById('list-title'),   
+
     }
 
     // Hold the clicked list name
@@ -29,12 +32,19 @@ export default function controller(view, model) {
 
     // Use event delegation for click listener on delete list buttons
     DOM.listsContainer.addEventListener('click', ev => {
-        // Avoid to have 'X' at the end of the list name
-        // e.g: 'shoppingX' --> 'shopping'
-        targetTextContent = ev.target.parentNode.textContent;
-        targetTextContent = targetTextContent.slice(0, -1);
+        if (ev.target.classList.contains('list')) {
+            // Avoid to have 'X' at the end of the list name
+            // e.g: 'shoppingX' --> 'shopping'
+            targetTextContent = ev.target.textContent;
+            targetTextContent = targetTextContent.slice(0, -1);
+            
+            view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
+        }
 
         if (ev.target.classList.contains('delete-list')) {
+            targetTextContent = ev.target.parentNode.textContent;
+            targetTextContent = targetTextContent.slice(0, -1);
+
             view.showModal(DOM.modalContainer, DOM.cancelListModal);
         }
     });
