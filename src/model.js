@@ -11,6 +11,7 @@ export default function model() {
     const addTodo = (
         currentList,
         title,
+        date,
         priority,
         description
         ) => {
@@ -29,7 +30,7 @@ export default function model() {
             tempList.push(newTodo);
 
             // Pass the temp array and be setted to currentList
-            localStorage.setItem(JSON.stringify(tempList));
+            localStorage.setItem(currentList, JSON.stringify(tempList));
         }
 
     return {

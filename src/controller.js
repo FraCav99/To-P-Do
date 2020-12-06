@@ -16,8 +16,11 @@ export default function controller(view, model) {
         closeCancelListModalBtn: document.getElementById('cancel'),
         confirmCancelationListBtn: document.getElementById('delete'),
         listItemsContainer: document.querySelector('.list-items-container'), // Elements inside list container
-        listTitle: document.getElementById('list-title'),   
-
+        listTitle: document.getElementById('list-title'),
+        itemTitle: document.getElementById('item-title'),  // Input fields
+        itemDate: document.getElementById('item-duedate'),
+        itemPriority: document.getElementById('item-priority'),
+        itemDescription: document.getElementById('description')
     }
 
     // Hold the clicked list name
@@ -54,7 +57,14 @@ export default function controller(view, model) {
         view.resetInputField(DOM.listTitleInput);   // reset input field if something was written
         view.closeModal(ev, DOM.modalContainer, DOM.listTitleModal);
     });
-    DOM.discardItemBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.itemInputModal));
+    DOM.discardItemBtn.addEventListener('click', ev => {
+        // Resetting input fields
+        view.resetInputField(DOM.itemTitle);
+        view.resetInputField(DOM.itemDate);
+        view.resetInputField(DOM.itemDescription);
+
+        view.closeModal(ev, DOM.modalContainer, DOM.itemInputModal);
+    });
     DOM.closeCancelListModalBtn.addEventListener('click', ev => view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal));
 
     // Create a new todo list
@@ -74,7 +84,31 @@ export default function controller(view, model) {
             view.createListDiv(DOM.listsContainer);
             view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal);
         }
-    })
+    });
+
+    // Add new todo for the current list
+    DOM.addItemBtn.addEventListener('click', ev => {
+        if (
+            DOM.itemTitle.value !== "" &&
+            DOM.itemDate.value !== ""
+        ) {
+            model.addTodo(
+                targetTextContent,
+                DOM.itemTitle.value,
+                DOM.itemDate.value,
+                DOM.itemPriority.value,
+                DOM.itemDescription.value
+            );
+
+            // Resetting input fields
+            view.resetInputField(DOM.itemTitle);
+            view.resetInputField(DOM.itemDate);
+            view.resetInputField(DOM.itemDescription);
+
+            view.closeModal(ev, DOM.modalContainer, DOM.itemInputModal);
+            view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
+        }
+    });
 
     // Display the list
     view.createListDiv(DOM.listsContainer);

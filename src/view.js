@@ -74,7 +74,8 @@ export default function view() {
         return button;
     }
 
-    const _createTodoDiv = todo => {
+    const _createTodoDiv = (todo, listContainer) => {
+        console.log(todo.priority);
         // Create the main div element
         const item = document.createElement('div');
         item.classList.add('item');
@@ -87,10 +88,13 @@ export default function view() {
         switch(todo.priority) {
             case 'high':
                 priority.classList.add('high');
+                break;
             case 'medium':
                 priority.classList.add('medium');
+                break;
             case 'low':
                 priority.classList.add('low');
+                break;
         }
 
         // Create todo title
@@ -122,6 +126,9 @@ export default function view() {
         item.append(priority);
         item.append(todoTitle);
         item.append(actionBtnDiv);
+
+        // Where all items will be attached
+        listContainer.append(item);
     }
 
     const showTodos = (selectList, listContainer, listTitle) => {
@@ -141,7 +148,7 @@ export default function view() {
 
         // Display todos on screen
         for (let todo of todos) {
-            _createTodoDiv(todo);
+            _createTodoDiv(todo, listContainer);
         }
 
 
