@@ -349,6 +349,7 @@ li {
   width: 10px;
   height: 10px;
   fill: white;
+  pointer-events: none;
 }
 
 .current__list__container .current-list .list-items-container .item .actionBtn .action:hover {

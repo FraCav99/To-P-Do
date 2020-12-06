@@ -178,6 +178,7 @@
               width: 10px;
               height: 10px;
               fill: white;
+              pointer-events: none; // avoiding interference with event listener
             }
 
             background-color: $AbitMoreGrey;

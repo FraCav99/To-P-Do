@@ -124,6 +124,28 @@ export default function controller(view, model) {
         }
     });
 
+    // Listen for action on each item
+    DOM.listItemsContainer.addEventListener('click', ev => {
+        if (ev.target.className === 'action') {
+            let itemName = ev.target.parentNode.parentNode;
+            
+            switch(ev.target.getAttribute('id')) {
+                case 'modify':
+                    console.log('modify');
+                    break;
+                case 'checked':
+                    console.log('checked');
+                    break;
+                case 'info':
+                    console.log('info');
+                    break;
+                case 'delete':
+                    console.log('delete');
+                    break;
+            }
+        }
+    });
+
     // Display the list
     view.createListDiv(DOM.listsContainer);
 }

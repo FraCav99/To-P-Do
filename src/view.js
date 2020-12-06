@@ -171,6 +171,6 @@ export default function view() {
         closeModal,
         createListDiv,
         showTodos,
-        clearListContainer
+        clearListContainer,
     }
 }
