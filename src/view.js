@@ -75,7 +75,6 @@ export default function view() {
     }
 
     const _createTodoDiv = (todo, listContainer) => {
-        console.log(todo.priority);
         // Create the main div element
         const item = document.createElement('div');
         item.classList.add('item');
@@ -132,26 +131,37 @@ export default function view() {
     }
 
     const showTodos = (selectList, listContainer, listTitle) => {
-        // Take element from selected list under object notation form
-        let todos = JSON.parse(localStorage.getItem(selectList));
-        
-        // Make some DOM modifications
-        // Change the list title
-        listTitle.textContent = selectList;
+        if (JSON.parse(localStorage.getItem(selectList)).length > 0) {
+            // Take element from selected list under object notation form
+            let todos = JSON.parse(localStorage.getItem(selectList));
+            
+            // Make some DOM modifications
+            // Change the list title
+            listTitle.textContent = selectList;
 
-        // Reload the elements inside listContainer
-        while(listContainer.firstChild) {
-            if (listContainer.lastChild.id !== 'add-new-todo') {
-                listContainer.removeChild(listContainer.lastChild);
-            } else break;
+            // Reload the elements inside listContainer
+            while(listContainer.firstChild) {
+                if (listContainer.lastChild.id !== 'add-new-todo') {
+                    listContainer.removeChild(listContainer.lastChild);
+                } else break;
+            }
+
+            // Display todos on screen
+            for (let todo of todos) {
+                _createTodoDiv(todo, listContainer);
+            }
+        } else {
+            while(listContainer.firstChild) {
+                if (listContainer.lastChild.id !== 'add-new-todo') {
+                    listContainer.removeChild(listContainer.lastChild);
+                } else break;
+            }
+            const par = document.createElement('p');
+            par.style.textAlign = 'center';
+            par.textContent = 'Add new todo(s) from the button below';
+            listContainer.append(par);
+            listTitle.textContent = selectList;
         }
-
-        // Display todos on screen
-        for (let todo of todos) {
-            _createTodoDiv(todo, listContainer);
-        }
-
-
     }
 
     return {

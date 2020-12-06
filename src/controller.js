@@ -24,7 +24,7 @@ export default function controller(view, model) {
     }
 
     // Hold the clicked list name
-    let targetTextContent; 
+    let targetTextContent;
 
     // Toggle dark mode
     DOM.darkModeSwitch.addEventListener('click', () => view.toggleDarkMode(DOM.darkModeSwitch));
@@ -84,11 +84,20 @@ export default function controller(view, model) {
             view.createListDiv(DOM.listsContainer);
             view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal);
         }
+
+        targetTextContent = "";
     });
 
     // Add new todo for the current list
     DOM.addItemBtn.addEventListener('click', ev => {
-        if (
+        if (!targetTextContent || localStorage.length === 0) {
+            // Resetting input fields
+            view.resetInputField(DOM.itemTitle);
+            view.resetInputField(DOM.itemDate);
+            view.resetInputField(DOM.itemDescription);
+
+            view.closeModal(ev, DOM.modalContainer, DOM.itemInputModal);
+        } else if (
             DOM.itemTitle.value !== "" &&
             DOM.itemDate.value !== ""
         ) {
