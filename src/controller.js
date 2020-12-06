@@ -85,7 +85,10 @@ export default function controller(view, model) {
             view.closeModal(ev, DOM.modalContainer, DOM.cancelListModal);
         }
 
+        // Reset the list container content
+        view.clearListContainer(DOM.listItemsContainer);
         targetTextContent = "";
+        DOM.listTitle.textContent = 'Select a list or create a new one.';
     });
 
     // Add new todo for the current list

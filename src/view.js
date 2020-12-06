@@ -31,6 +31,14 @@ export default function view() {
         }
     }
 
+    const clearListContainer = container => {
+        while(container.firstChild) {
+            if (container.lastChild.id !== 'add-new-todo') {
+                container.removeChild(container.lastChild);
+            } else break;
+        }
+    }
+
     const createListDiv = listsContainer => {
         // Refresh the list names resetting it
         _removeChilds(listsContainer);
@@ -140,22 +148,14 @@ export default function view() {
             listTitle.textContent = selectList;
 
             // Reload the elements inside listContainer
-            while(listContainer.firstChild) {
-                if (listContainer.lastChild.id !== 'add-new-todo') {
-                    listContainer.removeChild(listContainer.lastChild);
-                } else break;
-            }
+            clearListContainer(listContainer);
 
             // Display todos on screen
             for (let todo of todos) {
                 _createTodoDiv(todo, listContainer);
             }
         } else {
-            while(listContainer.firstChild) {
-                if (listContainer.lastChild.id !== 'add-new-todo') {
-                    listContainer.removeChild(listContainer.lastChild);
-                } else break;
-            }
+            clearListContainer(listContainer);
             const par = document.createElement('p');
             par.style.textAlign = 'center';
             par.textContent = 'Add new todo(s) from the button below';
@@ -170,6 +170,7 @@ export default function view() {
         showModal,
         closeModal,
         createListDiv,
-        showTodos
+        showTodos,
+        clearListContainer
     }
 }
