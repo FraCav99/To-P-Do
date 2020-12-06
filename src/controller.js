@@ -42,6 +42,7 @@ export default function controller(view, model) {
             targetTextContent = targetTextContent.slice(0, -1);
             
             view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
+            DOM.addNewItemBtn.classList.remove('visible');
         }
 
         if (ev.target.classList.contains('delete-list')) {
@@ -87,6 +88,7 @@ export default function controller(view, model) {
 
         // Reset the list container content
         view.clearListContainer(DOM.listItemsContainer);
+        DOM.addNewItemBtn.classList.add('visible');
         targetTextContent = "";
         DOM.listTitle.textContent = 'Select a list or create a new one.';
     });
