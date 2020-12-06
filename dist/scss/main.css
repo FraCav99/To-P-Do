@@ -285,7 +285,6 @@ li {
 }
 
 .current__list__container .current-list .list-items-container .item {
-  cursor: pointer;
   background-color: #f3f3f3;
   border-radius: 10px;
   width: 70%;
@@ -352,11 +351,19 @@ li {
   fill: white;
 }
 
+.current__list__container .current-list .list-items-container .item .actionBtn .action:hover {
+  background-color: #797979;
+}
+
 .current__list__container .current-list .list-items-container .item .actionBtn #delete {
   font-size: 10px;
   font-weight: 700;
   background-color: red;
   color: white;
+}
+
+.current__list__container .current-list .list-items-container .item .actionBtn #delete:hover {
+  background-color: #9b0000;
 }
 
 .current__list__container .current-list .list-items-container .item:hover {

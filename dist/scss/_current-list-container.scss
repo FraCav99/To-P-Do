@@ -129,7 +129,6 @@
       }
 
       .item {
-        cursor: pointer;
         background-color: #f3f3f3;
         border-radius: 10px;
         width: 70%;
@@ -182,6 +181,10 @@
             }
 
             background-color: $AbitMoreGrey;
+
+            &:hover {
+              background-color: $grayBall;
+            }
           }
 
           #delete {
@@ -189,6 +192,10 @@
             font-weight: 700;
             background-color: red;
             color: white;
+
+            &:hover {
+              background-color: rgb(155, 0, 0);
+            }
           }
         }
 
