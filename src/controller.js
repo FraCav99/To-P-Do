@@ -140,17 +140,19 @@ export default function controller(view, model) {
     });
 
     DOM.confirmEditBtn.addEventListener('click', ev => {
-        model.editTodo(
-            targetTextContent,
-            itemId,
-            DOM.editTitleInput.value,
-            DOM.editDateInput.value,
-            DOM.editPriorityInput.value,
-            DOM.editDescrInput.value
-        );
-
-        view.closeModal(ev, DOM.modalContainer, DOM.editItemModal);
-        view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
+        if (DOM.editTitleInput.value !== "" && DOM.editDateInput.value !== "") {
+            model.editTodo(
+                targetTextContent,
+                itemId,
+                DOM.editTitleInput.value,
+                DOM.editDateInput.value,
+                DOM.editPriorityInput.value,
+                DOM.editDescrInput.value
+            );
+    
+            view.closeModal(ev, DOM.modalContainer, DOM.editItemModal);
+            view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
+        }
     });
 
     // Listen for action on each item
