@@ -12,6 +12,13 @@ export default function controller(view, model) {
         addNewItemBtn: document.getElementById('add-new-todo'),
         addItemBtn: document.getElementById('add-item'),
         discardItemBtn: document.getElementById('discard-item'),
+        editItemModal: document.querySelector('.edit-item-input'),   // edit item modal
+        editTitleInput: document.getElementById('item-edit-title'),
+        editDateInput: document.getElementById('item-edit-duedate'),
+        editPriorityInput: document.getElementById('item-edit-priority'),
+        editDescrInput: document.getElementById('edit-description'),
+        confirmEditBtn: document.getElementById('edit-item'),
+        discardEditBtn: document.getElementById('discard-edit-item'),
         cancelListModal: document.querySelector('.deletion-modal'), // cancelation modal
         closeCancelListModalBtn: document.getElementById('cancel'),
         confirmCancelationListBtn: document.getElementById('delete'),
@@ -20,11 +27,13 @@ export default function controller(view, model) {
         itemTitle: document.getElementById('item-title'),  // Input fields
         itemDate: document.getElementById('item-duedate'),
         itemPriority: document.getElementById('item-priority'),
-        itemDescription: document.getElementById('description')
+        itemDescription: document.getElementById('description'),
     }
 
-    // Hold the clicked list name
-    let targetTextContent;
+    let targetTextContent;  // Hold the clicked list name
+    let itemsNode; // contains current list item nodes of the current list
+    let itemName; // contains the clicked item node
+    let itemId; // contains the id of the clicked element
 
     // Toggle dark mode
     DOM.darkModeSwitch.addEventListener('click', () => view.toggleDarkMode(DOM.darkModeSwitch));
@@ -124,14 +133,53 @@ export default function controller(view, model) {
         }
     });
 
+
+    // Edit item Modal
+    DOM.discardEditBtn.addEventListener('click', ev => {
+        view.closeModal(ev, DOM.modalContainer, DOM.editItemModal);
+    });
+
+    DOM.confirmEditBtn.addEventListener('click', ev => {
+        model.editTodo(
+            targetTextContent,
+            itemId,
+            DOM.editTitleInput.value,
+            DOM.editDateInput.value,
+            DOM.editPriorityInput.value,
+            DOM.editDescrInput.value
+        );
+
+        view.closeModal(ev, DOM.modalContainer, DOM.editItemModal);
+        view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
+    });
+
     // Listen for action on each item
     DOM.listItemsContainer.addEventListener('click', ev => {
         if (ev.target.className === 'action') {
-            let itemName = ev.target.parentNode.parentNode;
+            itemsNode = document.querySelectorAll('.item');
+            itemName = ev.target.parentNode.parentNode;
+
+            // Find the index of elements inside nodelist
+            // id inside nodelist, it's the same as object id
+            for (let i = 0; i < itemsNode.length; i++) {
+                if (itemsNode[i] === itemName) {
+                    itemId = i;
+                    break;
+                }
+            }
             
             switch(ev.target.getAttribute('id')) {
                 case 'modify':
-                    console.log('modify');
+                    view.showEditModal(
+                        DOM.modalContainer,
+                        DOM.editItemModal,
+                        itemId,
+                        targetTextContent,
+                        DOM.editTitleInput,
+                        DOM.editDateInput,
+                        DOM.editPriorityInput,
+                        DOM.editDescrInput
+                    );
                     break;
                 case 'checked':
                     console.log('checked');

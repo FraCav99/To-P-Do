@@ -63,6 +63,40 @@
                 </form>
             </div>
 
+            <!-- Edit item modal -->
+            <div class="edit-item-input visible">
+                <form>
+                    <label for="item-edit-title">Title</label>
+                    <input type="text" id="item-edit-title" required>
+
+                    <div class="mid-input-container">
+                        <div class="date-container">
+                            <label for="item-edit-duedate">Date</label>
+                            <input type="date" name="date" id="item-edit-duedate" required>
+                        </div>
+    
+                        <div class="priority-container">
+                            <label for="item-edit-priority">Priority</label>
+                            <select name="priority" id="item-edit-priority" required>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="edit-description">Description</label>
+                    <textarea name="description" id="edit-description" cols="30" rows="10"></textarea>
+
+                    <div class="action-button">
+                        <button type="submit" id="edit-item">Edit</button>
+                        <button id="discard-edit-item">Discard</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Info item modal -->
+
             <!-- Confirm list deletion -->
             <div class="deletion-modal visible">
                 <p>Do you really want to delete this list?</p>
@@ -105,6 +139,14 @@
                 <button id="add-new-todo" class="visible">
                     <span></span> +
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="main.js"></script>
+</body>
+</html>
 
                 <!-- <div class="item">
                     <span class="priority high"></span>
@@ -162,11 +204,3 @@
                         <button class="action" id="delete">X</button>
                     </div>
                 </div> -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Javascript -->
-    <script src="main.js"></script>
-</body>
-</html>

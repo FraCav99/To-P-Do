@@ -441,7 +441,8 @@ li {
   background-color: red;
 }
 
-.modal-container .item-input {
+.modal-container .item-input,
+.modal-container .edit-item-input {
   background-color: white;
   width: 50%;
   margin: auto;
@@ -449,28 +450,36 @@ li {
   border-radius: 10px;
 }
 
-.modal-container .item-input #item-title {
+.modal-container .item-input #item-title,
+.modal-container .item-input #item-edit-title,
+.modal-container .edit-item-input #item-title,
+.modal-container .edit-item-input #item-edit-title {
   width: 100%;
 }
 
 .modal-container .item-input label,
-.modal-container .item-input input {
+.modal-container .item-input input,
+.modal-container .edit-item-input label,
+.modal-container .edit-item-input input {
   display: block;
 }
 
-.modal-container .item-input label {
+.modal-container .item-input label,
+.modal-container .edit-item-input label {
   color: #0097ec;
   margin-bottom: 5px;
 }
 
-.modal-container .item-input input {
+.modal-container .item-input input,
+.modal-container .edit-item-input input {
   border: 1px solid #acacac;
   background-color: #f5f4f7;
   padding: 10px;
   border-radius: 5px;
 }
 
-.modal-container .item-input select {
+.modal-container .item-input select,
+.modal-container .edit-item-input select {
   border: none;
   padding: 10px 5px;
   background-color: #f5f4f7;
@@ -485,7 +494,8 @@ li {
   background-position-y: 8px;
 }
 
-.modal-container .item-input .mid-input-container {
+.modal-container .item-input .mid-input-container,
+.modal-container .edit-item-input .mid-input-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -495,7 +505,8 @@ li {
   margin: 20px 0px;
 }
 
-.modal-container .item-input textarea {
+.modal-container .item-input textarea,
+.modal-container .edit-item-input textarea {
   display: block;
   width: 100%;
   resize: none;
@@ -505,7 +516,8 @@ li {
   background-color: #f5f4f7;
 }
 
-.modal-container .item-input .action-button {
+.modal-container .item-input .action-button,
+.modal-container .edit-item-input .action-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -515,7 +527,8 @@ li {
   margin-top: 20px;
 }
 
-.modal-container .item-input button {
+.modal-container .item-input button,
+.modal-container .edit-item-input button {
   cursor: pointer;
   border: none;
   padding: 10px;
@@ -523,15 +536,22 @@ li {
   color: white;
 }
 
-.modal-container .item-input button:first-child {
+.modal-container .item-input button:first-child,
+.modal-container .edit-item-input button:first-child {
   margin-right: 20px;
 }
 
-.modal-container .item-input #add-item {
+.modal-container .item-input #add-item,
+.modal-container .item-input #edit-item,
+.modal-container .edit-item-input #add-item,
+.modal-container .edit-item-input #edit-item {
   background-color: #00ff19;
 }
 
-.modal-container .item-input #discard-item {
+.modal-container .item-input #discard-item,
+.modal-container .item-input #discard-edit-item,
+.modal-container .edit-item-input #discard-item,
+.modal-container .edit-item-input #discard-edit-item {
   background-color: red;
 }
 
@@ -570,6 +590,9 @@ li {
 
 @media screen and (max-width: 700px) {
   .modal-container .title-input {
+    width: 80%;
+  }
+  .modal-container .item-input {
     width: 80%;
   }
   .modal-container .deletion-modal {

@@ -164,6 +164,29 @@ export default function view() {
         }
     }
 
+    const showEditModal = (
+        mainModal,
+        modal,
+        itemId,
+        currentList,
+        titleInputField,
+        dateInputField,
+        priorityInputField,
+        descInputField
+    ) => {
+        const tempArray = JSON.parse(localStorage.getItem(currentList));
+        const editItem = tempArray.find(item => item.id === itemId);
+
+        // Show modal
+        showModal(mainModal, modal);
+
+        // Set the input field value from the item object
+        titleInputField.value = editItem.title;
+        dateInputField.value = editItem.date;
+        priorityInputField.value = editItem.priority;
+        descInputField.value = editItem.description;
+    }
+
     return {
         toggleDarkMode,
         resetInputField,
@@ -172,5 +195,6 @@ export default function view() {
         createListDiv,
         showTodos,
         clearListContainer,
+        showEditModal
     }
 }
