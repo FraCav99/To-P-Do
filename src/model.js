@@ -88,11 +88,37 @@ export default function model() {
         localStorage.setItem(currentList, JSON.stringify(tempArray));
     }
 
+    const deleteTodo = (currentList, id) => {
+        const tempArray = JSON.parse(localStorage.getItem(currentList));
+
+        // return all elements except the one with the specified 'id'
+        const filteredArray = tempArray.filter(item => item.id !== id);
+
+        // Create an array where all the item's ids are
+        // greater than passed 'id', these will be decresed by 1
+        // To reflect indexes inside DOM list items
+        const updatedArray = filteredArray.map(item => {
+            item = {
+                id: item.id > id ? item.id - 1 : item.id,
+                title: item.title,
+                date: item.date,
+                priority: item.priority,
+                description: item.description,
+                complete: item.complete
+            };
+
+            return item;
+        });
+
+        localStorage.setItem(currentList, JSON.stringify(updatedArray));
+    }
+
     return {
         createList,
         deleteList,
         addTodo,
         editTodo,
-        checkTodo
+        checkTodo,
+        deleteTodo
     }
 }

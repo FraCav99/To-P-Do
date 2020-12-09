@@ -211,7 +211,9 @@ export default function controller(view, model) {
                     );
                     break;
                 case 'delete':
-                    console.log('delete');
+                    model.deleteTodo(targetTextContent, itemId);
+                    itemId = '';
+                    view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
                     break;
             }
         }
