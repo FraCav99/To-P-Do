@@ -364,8 +364,8 @@ li {
 
 .current__list__container .current-list .list-items-container #add-new-todo {
   position: absolute;
-  bottom: 5%;
-  right: 3%;
+  bottom: 0%;
+  left: 3%;
   cursor: pointer;
   border: none;
   padding: 2px 10px;

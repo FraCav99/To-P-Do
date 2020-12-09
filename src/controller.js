@@ -1,43 +1,6 @@
+import DOM from './DOM';
+
 export default function controller(view, model) {
-    const DOM = {
-        darkModeSwitch: document.querySelector('input[type="checkbox"]'),
-        sideBar: document.querySelector('.sidebar'), // sidebar
-        closeSideBarBtn: document.querySelector('.close-sidebar-btn'),
-        openSideBarBtn: document.querySelector('.burger'),
-        modalContainer: document.querySelector('.modal-container'),     // main modal container
-        listTitleModal: document.querySelector('.title-input'),         // list title modal
-        listsContainer: document.querySelector('.lists-container'),
-        addNewListBtn: document.getElementById('add-new-list'),
-        discardTitleBtn: document.getElementById('discard-list-title'),
-        listTitleInput: document.getElementById('list-title-input'),
-        addListBtn: document.getElementById('add-list-title'),
-        itemInputModal: document.querySelector('.item-input'),      // add new item modal
-        addNewItemBtn: document.getElementById('add-new-todo'),
-        addItemBtn: document.getElementById('add-item'),
-        discardItemBtn: document.getElementById('discard-item'),
-        editItemModal: document.querySelector('.edit-item-input'),   // edit item modal
-        editTitleInput: document.getElementById('item-edit-title'),
-        editDateInput: document.getElementById('item-edit-duedate'),
-        editPriorityInput: document.getElementById('item-edit-priority'),
-        editDescrInput: document.getElementById('edit-description'),
-        confirmEditBtn: document.getElementById('edit-item'),
-        discardEditBtn: document.getElementById('discard-edit-item'),
-        infoItemModal: document.querySelector('.info-item-input'),  // info item modal
-        infoItemTitle: document.getElementById('item-info-title'),
-        infoItemDate: document.getElementById('item-info-duedate'),
-        infoItemPriority: document.getElementById('item-info-priority'),
-        infoItemDesc: document.getElementById('info-description'),
-        closeInfoBtn: document.getElementById('close-info-item'),
-        cancelListModal: document.querySelector('.deletion-modal'), // cancelation modal
-        closeCancelListModalBtn: document.getElementById('cancel'),
-        confirmCancelationListBtn: document.getElementById('delete'),
-        listItemsContainer: document.querySelector('.list-items-container'), // Elements inside list container
-        listTitle: document.getElementById('list-title'),
-        itemTitle: document.getElementById('item-title'),  // Input fields
-        itemDate: document.getElementById('item-duedate'),
-        itemPriority: document.getElementById('item-priority'),
-        itemDescription: document.getElementById('description'),
-    }
 
     let targetTextContent;  // Hold the clicked list name
     let itemsNode; // contains current list item nodes of the current list
@@ -71,7 +34,7 @@ export default function controller(view, model) {
             // Toggle sidebar when an element of sidebar is pressed
             // (for mobile view)
             view.toggleSideBar(DOM.sideBar);
-            
+
             view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
             DOM.addNewItemBtn.classList.remove('visible');
         }
@@ -235,6 +198,60 @@ export default function controller(view, model) {
         }
     });
 
+    // Create the demo list and items
+    model.createList('demo');
+    model.addTodo(
+        'demo',
+        'high priority',
+        '31-12-2020',
+        'high',
+        'this item has high priority'
+    );
+    model.addTodo(
+        'demo',
+        'medium priority',
+        '31-12-2020',
+        'medium',
+        'this item has medium priority'
+    );
+    model.addTodo(
+        'demo',
+        'low priority',
+        '31-12-2020',
+        'low',
+        'this item has low priority'
+    );
+    model.addTodo(
+        'demo',
+        'first button can modify item',
+        '31-12-2020',
+        'low',
+        'this item has low priority'
+    );
+    model.addTodo(
+        'demo',
+        'second button can mark item as complete',
+        '31-12-2020',
+        'low',
+        'this item has low priority'
+    );
+    model.addTodo(
+        'demo',
+        'third button can show item\'s info',
+        '31-12-2020',
+        'low',
+        'this item has low priority'
+    );
+    model.addTodo(
+        'demo',
+        'fourth button can delete item',
+        '31-12-2020',
+        'low',
+        'this item has low priority'
+    );
+
     // Display the list
     view.createListDiv(DOM.listsContainer);
+    view.showTodos('demo', DOM.listItemsContainer, DOM.listTitle);
+    DOM.addNewItemBtn.classList.remove('visible');
 }
