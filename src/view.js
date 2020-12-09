@@ -7,6 +7,10 @@ export default function view() {
         darkStylesheet.rel = 'stylesheet alternate';
     }
 
+    const toggleSideBar = sideBar => {
+        sideBar.classList.toggle('sidebar-active');
+    }
+
     const resetInputField = field => field.value = '';
 
     const showModal = (mainModalContainer, modal) => {
@@ -197,6 +201,7 @@ export default function view() {
 
     return {
         toggleDarkMode,
+        toggleSideBar,
         resetInputField,
         showModal,
         closeModal,

@@ -1,6 +1,9 @@
 export default function controller(view, model) {
     const DOM = {
         darkModeSwitch: document.querySelector('input[type="checkbox"]'),
+        sideBar: document.querySelector('.sidebar'), // sidebar
+        closeSideBarBtn: document.querySelector('.close-sidebar-btn'),
+        openSideBarBtn: document.querySelector('.burger'),
         modalContainer: document.querySelector('.modal-container'),     // main modal container
         listTitleModal: document.querySelector('.title-input'),         // list title modal
         listsContainer: document.querySelector('.lists-container'),
@@ -44,6 +47,15 @@ export default function controller(view, model) {
     // Toggle dark mode
     DOM.darkModeSwitch.addEventListener('click', () => view.toggleDarkMode(DOM.darkModeSwitch));
 
+    // Toggle sideBar
+    DOM.openSideBarBtn.addEventListener('click', () => {
+        view.toggleSideBar(DOM.sideBar);
+    });
+
+    DOM.closeSideBarBtn.addEventListener('click', () => {
+        view.toggleSideBar(DOM.sideBar);
+    });
+
     // Show modal container and its modal
     DOM.addNewListBtn.addEventListener('click', () => view.showModal(DOM.modalContainer, DOM.listTitleModal));
     DOM.addNewItemBtn.addEventListener('click', () => view.showModal(DOM.modalContainer, DOM.itemInputModal));
@@ -55,6 +67,10 @@ export default function controller(view, model) {
             // e.g: 'shoppingX' --> 'shopping'
             targetTextContent = ev.target.textContent;
             targetTextContent = targetTextContent.slice(0, -1);
+            
+            // Toggle sidebar when an element of sidebar is pressed
+            // (for mobile view)
+            view.toggleSideBar(DOM.sideBar);
             
             view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
             DOM.addNewItemBtn.classList.remove('visible');

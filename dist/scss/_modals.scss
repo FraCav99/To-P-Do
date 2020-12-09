@@ -185,14 +185,16 @@
 }
 
 // Media query
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 300px) and (max-width: 820px) {
   .modal-container {
     .title-input {
       width: 80%;
     }
 
-    .item-input {
-      width: 80%;
+    .item-input,
+    .edit-item-input,
+    .info-item-input {
+      width: 90%;
     }
 
     .deletion-modal {
