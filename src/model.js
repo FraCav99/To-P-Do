@@ -70,10 +70,29 @@ export default function model() {
         localStorage.setItem(currentList, JSON.stringify(tempArray));
     }
 
+
+    const checkTodo = (currentList, id) => {
+        const tempArray = JSON.parse(localStorage.getItem(currentList));
+        const selectedItem = tempArray.find(item => item.id === id);
+
+        const checkedTodo = {
+            id: selectedItem.id,
+            title: selectedItem.title,
+            date: selectedItem.date,
+            priority: selectedItem.priority,
+            description: selectedItem.description,
+            complete: !selectedItem.complete
+        };
+
+        tempArray[id] = checkedTodo;
+        localStorage.setItem(currentList, JSON.stringify(tempArray));
+    }
+
     return {
         createList,
         deleteList,
         addTodo,
-        editTodo
+        editTodo,
+        checkTodo
     }
 }

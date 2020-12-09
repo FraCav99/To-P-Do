@@ -184,7 +184,8 @@ export default function controller(view, model) {
                     );
                     break;
                 case 'checked':
-                    console.log('checked');
+                    model.checkTodo(targetTextContent, itemId);
+                    view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
                     break;
                 case 'info':
                     console.log('info');

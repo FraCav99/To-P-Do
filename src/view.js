@@ -106,7 +106,7 @@ export default function view() {
 
         // Create todo title
         const todoTitle = document.createElement('span');
-        todoTitle.setAttribute('id', 'item-name');
+        todoTitle.setAttribute('class', 'item-name');
         todoTitle.textContent = todo.title;
 
         // Create action buttons div
@@ -128,6 +128,14 @@ export default function view() {
         actionBtnDiv.append(infoBtn);
         actionBtnDiv.append(deleteBtn);
 
+        // Apply effects if todo is completed
+        if (todo.complete) {
+            todoTitle.classList.add('checked');
+            item.classList.add('checkedDiv');
+        } else {
+            todoTitle.classList.remove('checked');
+            item.classList.remove('checkedDiv');
+        }
 
         // Attach elements to item
         item.append(priority);
