@@ -19,6 +19,12 @@ export default function controller(view, model) {
         editDescrInput: document.getElementById('edit-description'),
         confirmEditBtn: document.getElementById('edit-item'),
         discardEditBtn: document.getElementById('discard-edit-item'),
+        infoItemModal: document.querySelector('.info-item-input'),  // info item modal
+        infoItemTitle: document.getElementById('item-info-title'),
+        infoItemDate: document.getElementById('item-info-duedate'),
+        infoItemPriority: document.getElementById('item-info-priority'),
+        infoItemDesc: document.getElementById('info-description'),
+        closeInfoBtn: document.getElementById('close-info-item'),
         cancelListModal: document.querySelector('.deletion-modal'), // cancelation modal
         closeCancelListModalBtn: document.getElementById('cancel'),
         confirmCancelationListBtn: document.getElementById('delete'),
@@ -155,6 +161,11 @@ export default function controller(view, model) {
         }
     });
 
+    // Info item modal
+    DOM.closeInfoBtn.addEventListener('click', ev => {
+        view.closeModal(ev, DOM.modalContainer, DOM.infoItemModal);
+    });
+
     // Listen for action on each item
     DOM.listItemsContainer.addEventListener('click', ev => {
         if (ev.target.className === 'action') {
@@ -188,7 +199,16 @@ export default function controller(view, model) {
                     view.showTodos(targetTextContent, DOM.listItemsContainer, DOM.listTitle);
                     break;
                 case 'info':
-                    console.log('info');
+                    view.showEditModal(
+                        DOM.modalContainer,
+                        DOM.infoItemModal,
+                        itemId,
+                        targetTextContent,
+                        DOM.infoItemTitle,
+                        DOM.infoItemDate,
+                        DOM.infoItemPriority,
+                        DOM.infoItemDesc
+                    );
                     break;
                 case 'delete':
                     console.log('delete');

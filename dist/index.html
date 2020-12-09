@@ -96,6 +96,35 @@
             </div>
 
             <!-- Info item modal -->
+            <div class="info-item-input visible">
+                <form>
+                    <label for="item-info-title">Title</label>
+                    <input type="text" id="item-info-title" disabled>
+
+                    <div class="mid-input-container">
+                        <div class="date-container">
+                            <label for="item-info-duedate">Date</label>
+                            <input type="date" name="date" id="item-info-duedate" disabled>
+                        </div>
+    
+                        <div class="priority-container">
+                            <label for="item-info-priority">Priority</label>
+                            <select name="priority" id="item-info-priority" disabled>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <label for="info-description">Description</label>
+                    <textarea name="description" id="info-description" cols="30" rows="10" disabled></textarea>
+
+                    <div class="action-button">
+                        <button id="close-info-item">Close</button>
+                    </div>
+                </form>
+            </div>
 
             <!-- Confirm list deletion -->
             <div class="deletion-modal visible">

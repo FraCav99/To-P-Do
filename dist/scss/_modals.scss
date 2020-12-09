@@ -60,7 +60,8 @@
 
   // Item input
   .item-input,
-  .edit-item-input {
+  .edit-item-input,
+  .info-item-input {
     background-color: white;
     width: 50%;
     margin: auto;
@@ -68,7 +69,8 @@
     border-radius: 10px;
 
     #item-title,
-    #item-edit-title {
+    #item-edit-title,
+    #item-info-title {
       width: 100%;
     }
 
@@ -136,7 +138,8 @@
     }
 
     #add-item,
-    #edit-item {
+    #edit-item,
+    #close-info-item {
       background-color: $greenish;
     }
 

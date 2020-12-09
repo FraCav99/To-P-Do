@@ -152,3 +152,27 @@
   background-color: var(--lightGray);
   color: var(--white);
 }
+
+/************/
+.modal-container .info-item-input {
+  background-color: var(--mediumGray);
+}
+
+.modal-container .info-item-input form label {
+  color: var(--white);
+}
+
+.modal-container .info-item-input form input {
+  background-color: var(--lightGray);
+  color: var(--white);
+}
+
+.modal-container .info-item-input form textarea {
+  background-color: var(--lightGray);
+  color: var(--white);
+}
+
+.modal-container .info-item-input form select {
+  background-color: var(--lightGray);
+  color: var(--white);
+}
