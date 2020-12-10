@@ -1,10 +1,30 @@
 export default function view() {
 
+    const _darkStylesheet = document.getElementById('dark');
+    let _theme = localStorage.getItem('theme');
+    
+    const _enableDarkMode = () => {
+        _darkStylesheet.rel = 'stylesheet';
+        localStorage.setItem('theme', 'dark');
+    }
+
+    const _disableDarkMode = () => {
+        _darkStylesheet.rel = 'stylesheet alternate';
+        localStorage.setItem('theme', null);
+    }
+
+    _theme === 'dark' ? _enableDarkMode() : null;
+
     const toggleDarkMode = switcher =>  {
-        const darkStylesheet = document.getElementById('dark');
-        switcher.checked ?
-        darkStylesheet.rel = 'stylesheet' :
-        darkStylesheet.rel = 'stylesheet alternate';
+        // Persist dark mode even if page is reload
+        _theme = localStorage.getItem('theme');
+        if (switcher.checked && _theme !== 'dark') {
+            _enableDarkMode();
+            console.log(_theme);
+        } else {
+            _disableDarkMode();
+            console.log(_theme);
+        }
     }
 
     const toggleSideBar = sideBar => {
@@ -49,20 +69,22 @@ export default function view() {
 
         if (localStorage.length > 0) {
             for (let i = 0; i < localStorage.length; i++) {
-                const list = document.createElement('li');
-                list.classList.add('list');
-                list.textContent = localStorage.key(i);
-        
-                // Create the delete list button
-                const deleteListBtn = document.createElement('button');
-                deleteListBtn.classList.add('delete-list');
-                deleteListBtn.textContent = 'X';
-        
-                // append the button to li element
-                list.append(deleteListBtn);
-        
-                // append list element to list container
-                listsContainer.append(list);
+                if (localStorage.key(i) !== 'theme') {
+                    const list = document.createElement('li');
+                    list.classList.add('list');
+                    list.textContent = localStorage.key(i);
+            
+                    // Create the delete list button
+                    const deleteListBtn = document.createElement('button');
+                    deleteListBtn.classList.add('delete-list');
+                    deleteListBtn.textContent = 'X';
+            
+                    // append the button to li element
+                    list.append(deleteListBtn);
+            
+                    // append list element to list container
+                    listsContainer.append(list);
+                }
             }
         } else {
             const par = document.createElement('p');
