@@ -26,7 +26,7 @@
                     <input type="text" id="list-title-input" required>
                     <div class="action-button">
                         <button type="submit" id="add-list-title">Add</button>
-                        <button id="discard-list-title">Discard</button>
+                        <button id="discard-list-title">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -58,7 +58,7 @@
 
                     <div class="action-button">
                         <button type="submit" id="add-item">Add</button>
-                        <button id="discard-item">Discard</button>
+                        <button id="discard-item">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +90,7 @@
 
                     <div class="action-button">
                         <button type="submit" id="edit-item">Edit</button>
-                        <button id="discard-edit-item">Discard</button>
+                        <button id="discard-edit-item">Cancel</button>
                     </div>
                 </form>
             </div>
@@ -174,15 +174,17 @@
 
         <!-- Current list items container -->
         <div class="current-list">
-            <h1 id="list-title">Select a list or create a new one.</h1>
-
-            <div class="list-items-container">
+            
+            <div class="title-container">
+                <h1 id="list-title">Select a list or create a new one.</h1>
 
                 <!-- Add new todo button -->
                 <button id="add-new-todo" class="visible">
                     <span></span> +
                 </button>
             </div>
+
+            <div class="list-items-container"></div>
         </div>
     </div>
 

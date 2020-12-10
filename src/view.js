@@ -170,7 +170,7 @@ export default function view() {
             clearListContainer(listContainer);
             const par = document.createElement('p');
             par.style.textAlign = 'center';
-            par.textContent = 'Add new todo(s) from the button below';
+            par.textContent = 'Add new todo(s) from the button above';
             listContainer.append(par);
             listTitle.textContent = selectList;
         }

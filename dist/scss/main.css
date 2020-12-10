@@ -331,10 +331,56 @@ li {
   height: 95vh;
 }
 
-.current__list__container .current-list #list-title {
+.current__list__container .current-list .title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 20px;
+}
+
+.current__list__container .current-list .title-container #list-title {
   text-align: center;
   font-weight: 500;
-  padding: 10px 0px;
+  display: inline-block;
+}
+
+.current__list__container .current-list .title-container #add-new-todo {
+  cursor: pointer;
+  border: none;
+  padding: 2px 10px;
+  background-color: #0097ec;
+  color: white;
+  font-size: 30px;
+  border-radius: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.current__list__container .current-list .title-container #add-new-todo span {
+  opacity: 0;
+  font-size: 20px;
+}
+
+.current__list__container .current-list .title-container #add-new-todo:hover {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.current__list__container .current-list .title-container #add-new-todo:hover span {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
+.current__list__container .current-list .title-container #add-new-todo:hover span:after {
+  content: "Add new todo";
 }
 
 .current__list__container .current-list .list-items-container {
@@ -362,49 +408,10 @@ li {
   display: none;
 }
 
-.current__list__container .current-list .list-items-container #add-new-todo {
-  position: absolute;
-  bottom: 0%;
-  left: 3%;
-  cursor: pointer;
-  border: none;
-  padding: 2px 10px;
-  background-color: #0097ec;
-  color: white;
-  font-size: 30px;
-  border-radius: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.current__list__container .current-list .list-items-container #add-new-todo span {
-  opacity: 0;
-  font-size: 20px;
-}
-
-.current__list__container .current-list .list-items-container #add-new-todo:hover {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.current__list__container .current-list .list-items-container #add-new-todo:hover span {
-  opacity: 1;
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-
-.current__list__container .current-list .list-items-container #add-new-todo:hover span:after {
-  content: "Add new todo";
-}
-
 .current__list__container .current-list .list-items-container .item {
   background-color: #f3f3f3;
   border-radius: 10px;
-  width: 90%;
+  width: 80%;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;

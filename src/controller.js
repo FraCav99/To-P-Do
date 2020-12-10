@@ -203,55 +203,53 @@ export default function controller(view, model) {
     model.addTodo(
         'demo',
         'high priority',
-        '31-12-2020',
+        '2020-12-31',
         'high',
         'this item has high priority'
     );
     model.addTodo(
         'demo',
         'medium priority',
-        '31-12-2020',
+        '2020-12-31',
         'medium',
         'this item has medium priority'
     );
     model.addTodo(
         'demo',
         'low priority',
-        '31-12-2020',
+        '2020-12-31',
         'low',
         'this item has low priority'
     );
     model.addTodo(
         'demo',
         'first button can modify item',
-        '31-12-2020',
+        '2020-12-31',
         'low',
         'this item has low priority'
     );
     model.addTodo(
         'demo',
         'second button can mark item as complete',
-        '31-12-2020',
+        '2020-12-31',
         'low',
         'this item has low priority'
     );
     model.addTodo(
         'demo',
         'third button can show item\'s info',
-        '31-12-2020',
+        '2020-12-31',
         'low',
         'this item has low priority'
     );
     model.addTodo(
         'demo',
         'fourth button can delete item',
-        '31-12-2020',
+        '2020-12-31',
         'low',
         'this item has low priority'
     );
 
     // Display the list
     view.createListDiv(DOM.listsContainer);
-    view.showTodos('demo', DOM.listItemsContainer, DOM.listTitle);
-    DOM.addNewItemBtn.classList.remove('visible');
 }
